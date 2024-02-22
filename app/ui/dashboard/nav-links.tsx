@@ -51,7 +51,7 @@ export function NavLinkBoard() {
       >
         <LayoutDashboard className="text-white size-5" />
         <p className="text-white text-sm font-bold select-none">
-          {menu == "off" ? <p className="block md:hidden">Painel</p> : "Painel"}
+          {menu == "off" ? <span className="block md:hidden">Painel</span> : "Painel"}
         </p>
       </Link>
 
@@ -76,7 +76,7 @@ export function NavLinkBoard() {
               pathname == href ? "text-teal-900 font-bold" : "text-gray-500"
             } select-none text-sm group-hover:font-bold group-hover:text-teal-900`}
           >
-            {menu == "off" ? <p className="block md:hidden">{name}</p> : name}
+            {menu == "off" ? <span className="block md:hidden">{name}</span> : name}
           </p>
         </Link>
       ))}
@@ -110,7 +110,7 @@ export function NavLinkUsers() {
               pathname == href ? "text-black font-bold" : "text-gray-500"
             } select-none text-sm group-hover:font-bold group-hover:text-black`}
           >
-            {menu == "off" ? <p className="block md:hidden">{name}</p> : name}
+            {menu == "off" ? <span className="block md:hidden">{name}</span> : name}
           </p>
         </Link>
       ))}
