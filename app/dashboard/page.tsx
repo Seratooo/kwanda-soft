@@ -2,6 +2,80 @@ import { LogOut, Plus } from "lucide-react";
 import StackedBarChart from "../ui/dashboard/stackedBarChart";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import PieChartElement from "../ui/dashboard/pieChart";
+import PatientsTable from "../ui/patients/table";
+
+const Patients = [
+  {
+    id: '3958dc9e-712f-4377-85e9-fec4b6a6442a',
+    name: 'Delba de Oliveira',
+    waitingTime: '10min',
+    status: 'em risco',
+    priority: 'emergência'
+  },
+  {
+    id: '3958dc9e-742f-4377-85e9-fec4b6a6442a',
+    name: 'Lee Robinson',
+    waitingTime: '13min',
+    status: 'grave',
+    priority: 'muito-urgente'
+  },
+  {
+    id: '3958dc9e-737f-4377-85e9-fec4b6a6442a',
+    name: 'Hector Simpson',
+    waitingTime: '20min',
+    status: 'em risco',
+    priority: 'emergência'
+  },
+  {
+    id: '50ca3e18-62cd-11ee-8c99-0242ac120002',
+    name: 'Steven Tey',
+    waitingTime: '22min',
+    status: 'moderado',
+    priority: 'urgente'
+  },
+  {
+    id: '3958dc9e-787f-4377-85e9-fec4b6a6442a',
+    name: 'Steph Dietz',
+    waitingTime: '22min',
+    status: 'estável',
+    priority: 'pouco-urgente'
+  },
+  {
+    id: '76d65c26-f784-44a2-ac19-586678f7c2f2',
+    name: 'Michael Novotny',
+    waitingTime: '25min',
+    status: 'sem risco',
+    priority: 'não-urgente'
+  },
+  // {
+  //   id: 'd6e15727-9fe1-4961-8c5b-ea44a9bd81aa',
+  //   name: 'Evil Rabbit',
+  //   waitingTime: '27min',
+  //   status: 'sem risco',
+  //   priority: 'não-urgente'
+  // },
+  // {
+  //   id: '126eed9c-c90c-4ef6-a4a8-fcf7408d3c66',
+  //   name: 'Emil Kowalski',
+  //   waitingTime: '28min',
+  //   status: 'sem risco',
+  //   priority: 'não-urgente'
+  // },
+  // {
+  //   id: 'CC27C14A-0ACF-4F4A-A6C9-D45682C144B9',
+  //   name: 'Amy Burns',
+  //   waitingTime: '29min',
+  //   status: 'sem risco',
+  //   priority: 'não-urgente'
+  // },
+  // {
+  //   id: '13D07535-C59E-4157-A011-F8D2EF4E0CBB',
+  //   name: 'Balazs Orban',
+  //   waitingTime: '32min',
+  //   status: 'sem risco',
+  //   priority: 'não-urgente'
+  // },
+];
 
 export default function Page() {
   return (
@@ -66,6 +140,7 @@ export default function Page() {
             </div>
             <StackedBarChart />
           </div>
+          <PatientsTable patients={Patients}/>
         </div>
 
         <div className="w-full md:w-72 h-screen space-y-6">
