@@ -15,3 +15,17 @@ export type FormattedPacientsTable = {
   status: string;
   priority: string;
 };
+
+export type cardBoardProps = {
+  title: string;
+  value: number;
+  variation: string;
+  cardColor: string;
+}
+
+export type cardUserProps = {
+  linkAvatarImage: string;
+  avatarFallback: string;
+  name: string;
+  description: string;
+}
