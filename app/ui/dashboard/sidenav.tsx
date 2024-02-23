@@ -11,7 +11,7 @@ export default function SideNav() {
   const pathname = usePathname();
   const { replace } = useRouter();
   const [menu, setMenu] = useState(
-    new URLSearchParams(searchParams).get("menu")
+    searchParams.get("menu")
   );
 
   function handleToggleMenu() {
@@ -32,7 +32,7 @@ export default function SideNav() {
       className={`${
         menu == "off"
           ? "h-screen md:w-16 md:h-screen"
-          : "h-[52px] overflow-hidden md:w-64 md:h-screen"
+          : "h-[51px] overflow-hidden md:w-64 md:h-screen"
       } w-[100%] z-10 bg-white fixed md:static px-3 py-3 border-b md:border-x md:border-b-0 h-full duration-300`}
     >
       <div className="space-y-1 h-14">

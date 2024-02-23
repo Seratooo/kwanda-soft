@@ -1,5 +1,7 @@
 import { LogOut, Plus } from "lucide-react";
 import StackedBarChart from "../ui/dashboard/stackedBarChart";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import PieChartElement from "../ui/dashboard/pieChart";
 
 export default function Page() {
   return (
@@ -18,9 +20,9 @@ export default function Page() {
         </div>
       </div>
 
-      <div className="flex gap-5 md:gap-1 flex-col md:flex-row md:justify-between">
-        <div className="space-y-8">
-          <div className="flex flex-col gap-2 md:flex-row md:justify-between">
+      <div className="flex gap-5 md:gap-6 flex-col md:flex-row md:justify-between">
+        <div className="space-y-8 w-full">
+          <div className="flex flex-col gap-2 md:flex-row md:justify-between 2xl:justify-start">
             <div className="bg-teal-100 h-[6.5rem] w-full md:w-56 p-2 md:p-4 rounded-md">
               <p className="text-sm">Pacientes a espera</p>
               <p className="text-gray-700 font-bold text-4xl">12</p>
@@ -65,9 +67,10 @@ export default function Page() {
             <StackedBarChart />
           </div>
         </div>
-        <div className="w-full md:w-72 h-[90vh] border rounded-md">
-          <div>
-            <div className="flex justify-between items-center border p-2 md:p-4">
+
+        <div className="w-full md:w-72 h-screen space-y-6">
+          <div className="border rounded-md">
+            <div className="flex justify-between items-center p-2 md:p-4">
               <p className="text-sm font-bold block">Actividades</p>
               <select
                 name=""
@@ -80,7 +83,78 @@ export default function Page() {
                 <option value="A">Anualmente</option>
               </select>
             </div>
-            <div></div>
+            <div className="flex gap-4 items-center justify-center bg-gray-100 m-2 md:m-4 p-2 rounded-md">
+              <Avatar>
+                <AvatarImage
+                  src="https://github.com/seratooo.png"
+                  alt="@seratooo"
+                />
+                <AvatarFallback>ST</AvatarFallback>
+              </Avatar>
+              <div>
+                <p className="text-sm font-bold w-40">Abubacar Correia</p>
+                <p className="text-gray-400 text-xs w-40">
+                  In eu do do cillum lorem exercitation ea dolor.
+                </p>
+              </div>
+            </div>
+            <div className="flex gap-4 items-center justify-center bg-gray-100 m-2 md:m-4 p-2 rounded-md">
+              <Avatar>
+                <AvatarImage
+                  src="https://github.com/seratooo.png"
+                  alt="@seratooo"
+                />
+                <AvatarFallback>ST</AvatarFallback>
+              </Avatar>
+              <div>
+                <p className="text-sm font-bold w-40">Abubacar Correia</p>
+                <p className="text-gray-400 text-xs w-40">
+                  In eu do do cillum lorem exercitation ea dolor.
+                </p>
+              </div>
+            </div>
+            <div className="flex gap-4 items-center justify-center bg-gray-100 m-2 md:m-4 p-2 rounded-md">
+              <Avatar>
+                <AvatarImage
+                  src="https://github.com/seratooo.png"
+                  alt="@seratooo"
+                />
+                <AvatarFallback>ST</AvatarFallback>
+              </Avatar>
+              <div>
+                <p className="text-sm font-bold w-40">Abubacar Correia</p>
+                <p className="text-gray-400 text-xs w-40">
+                  In eu do do cillum lorem exercitation ea dolor.
+                </p>
+              </div>
+            </div>
+            <div className="flex gap-4 items-center justify-center bg-gray-100 m-2 md:m-4 p-2 rounded-md">
+              <Avatar>
+                <AvatarImage
+                  src="https://github.com/seratooo.png"
+                  alt="@seratooo"
+                />
+                <AvatarFallback>ST</AvatarFallback>
+              </Avatar>
+              <div>
+                <p className="text-sm font-bold w-40">Abubacar Correia</p>
+                <p className="text-gray-400 text-xs w-40">
+                  In eu do do cillum lorem exercitation ea dolor.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex flex-col border rounded-md p-2 md:p-4">
+            <div>
+              <p className="text-sm font-bold">Estatísticas</p>
+              <p className="text-gray-400 text-xs">
+              De 1 à 15 Junho, 2023
+              </p>
+            </div>
+            <div className="h-44">
+              <PieChartElement />
+            </div>
           </div>
         </div>
       </div>
