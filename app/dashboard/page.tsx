@@ -51,7 +51,12 @@ export default function Page() {
           <div className="h-60 md:h-80 w-full">
             <div className="flex justify-between">
               <p className="text-sm font-bold block">Estatísticas</p>
-              <select name="" id="" value="2023" className="p-2 bg-gray-100 rounded-md text-sm">
+              <select
+                name=""
+                id="select1"
+                defaultValue="2023"
+                className="p-2 bg-gray-100 rounded-md text-xs"
+              >
                 <option value="2024">2024</option>
                 <option value="2023">2023</option>
                 <option value="2022">2022</option>
@@ -60,7 +65,24 @@ export default function Page() {
             <StackedBarChart />
           </div>
         </div>
-        <div className="w-full md:w-72 h-[90.6vh] border rounded-md"></div>
+        <div className="w-full md:w-72 h-[90vh] border rounded-md">
+          <div>
+            <div className="flex justify-between items-center border p-2 md:p-4">
+              <p className="text-sm font-bold block">Actividades</p>
+              <select
+                name=""
+                id="select2"
+                defaultValue="M"
+                className="p-2 bg-gray-100 rounded-md text-xs"
+              >
+                <option value="D">Diariamente</option>
+                <option value="M">Mensalmente</option>
+                <option value="A">Anualmente</option>
+              </select>
+            </div>
+            <div></div>
+          </div>
+        </div>
       </div>
     </main>
   );
