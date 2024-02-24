@@ -3,11 +3,9 @@
 import { AlignJustify, X } from "lucide-react";
 import Logo from "../logo";
 import Link from "next/link";
-import { NavLinkBoard, NavLinkUsers } from "./nav-links";
+import { NavLinkBoard } from "./nav-links";
 import { usePathname, useSearchParams } from "next/navigation";
 import { clsx } from "clsx";
-import { hanldeToggleParam } from "@/lib/utils";
-import { handleToggleParamsProps } from "@/lib/definitions";
 
 export default function SideNav() {
   const searchParams = useSearchParams();
@@ -35,7 +33,7 @@ export default function SideNav() {
       className={clsx(
         `overflow-hidden md:w-64 md:h-screen w-[100%] z-10 bg-white fixed md:static px-3 py-3 border-b md:border-x md:border-b-0 h-full duration-300`,
         {
-          "md:w-[4rem]": menu,
+          "h-12 md:w-[4rem]": menu,
         }
       )}
     >
@@ -52,7 +50,10 @@ export default function SideNav() {
           </Link>
 
           <Link className="cursor-pointer" href={hanldeToggleMenu()}>
-            {menu ? <X /> : <AlignJustify />}
+            <X className={menu ? "hidden md:block" : "block md:hidden"} />
+            <AlignJustify
+              className={menu ? "block md:hidden" : "hidden md:block"}
+            />
           </Link>
         </div>
         <p
@@ -66,8 +67,6 @@ export default function SideNav() {
 
       <div className="mt-3 space-y-1 overflow-auto h-[85vh]">
         <NavLinkBoard isOpen={menu} />
-        <div className="bg-gray-200 w-full h-[1px]"></div>
-        <NavLinkUsers isOpen={menu} />
       </div>
     </div>
   );

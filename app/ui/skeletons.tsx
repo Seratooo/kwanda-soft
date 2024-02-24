@@ -26,11 +26,11 @@ export function CardsBoardSkeleton() {
 export function CardUserSkeleton() {
   return (
     <>
-      <div className="flex gap-4 items-center justify-center bg-gray-100 m-2 md:m-4 p-2.5 rounded-md animate-pulse">
+      <div className="flex gap-4 items-center justify-center bg-gray-100 m-3 md:my-[1.21rem] md:mx-[1.16rem] p-2.5 rounded-md animate-pulse">
         <div className="w-9 h-9 rounded-full bg-gray-300"></div>
         <div>
-          <div className="w-40 h-4 bg-gray-300 mb-1"></div>
-          <div className="w-40 h-6 bg-gray-200"></div>
+          <div className="w-[9.7rem] h-4 bg-gray-300 mb-1"></div>
+          <div className="w-[9.7rem] h-6 bg-gray-200"></div>
         </div>
       </div>
     </>

@@ -86,7 +86,7 @@ export default function PatientsTable() {
       <div className="mt-3 mb-8 flow-root">
         <div className="overflow-x-auto">
           <div className="inline-block min-w-full align-middle">
-            <div className="overflow-y-scroll rounded-md h-[24rem] md:h-[16rem] bg-gray-100  md:border p-0 md:pt-0">
+            <div className="overflow-y-scroll rounded-md h-[24rem] md:h-[16.5rem] bg-gray-100  md:border p-0 md:pt-0">
               <div className="md:hidden p-1">
                 {patients?.map((patient) => (
                   <div

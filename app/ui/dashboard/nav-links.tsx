@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import clsx from "clsx";
+import { usePathname, useSearchParams } from "next/navigation";
 
 const linkBoard = [
   { name: "Quadro", href: "/dashboard/board", Icon: Presentation },
@@ -35,10 +36,13 @@ const linkUsers = [
 ];
 
 export function NavLinkBoard({ isOpen }: { isOpen: string | null }) {
+  const searchParams = useSearchParams().toString();
+  const pathname = usePathname();
+
   return (
     <>
       <Link
-        href={`/dashboard`}
+        href={`${searchParams ? `/dashboard?${searchParams}` : "/dashboard"}`}
         className="flex gap-1 bg-teal-900 p-2 rounded-md cursor-pointer"
       >
         <LayoutDashboard className="text-white size-5" />
@@ -54,45 +58,51 @@ export function NavLinkBoard({ isOpen }: { isOpen: string | null }) {
       {linkBoard.map(({ href, name, Icon }, index) => (
         <Link
           key={index}
-          href={href}
+          href={`${searchParams ? `${href}?${searchParams}` : href}`}
           className={clsx(
-            "group flex gap-1 p-2 rounded-md cursor-pointer hover:bg-teal-100/30"
+            "group flex gap-1 p-2 rounded-md cursor-pointer hover:bg-teal-100/30",
+            {
+              "bg-teal-100": pathname == href,
+            }
           )}
         >
           <Icon
             className={`size-5 group-hover:font-bold group-hover:text-teal-900`}
           />
           <p
-            className={clsx(`select-none text-sm group-hover:font-bold group-hover:text-teal-900`,
-            {
-              "md:hidden": isOpen,
-            })}
+            className={clsx(
+              `select-none text-sm group-hover:font-bold group-hover:text-teal-900`,
+              {
+                "md:hidden": isOpen,
+              }
+            )}
           >
             {name}
           </p>
         </Link>
       ))}
-    </>
-  );
-}
-
-export function NavLinkUsers({ isOpen }: { isOpen: string | null }) {
-  return (
-    <>
+      <div className="bg-gray-200 w-full h-[1px]"></div>
       {linkUsers.map(({ href, name, Icon }, index) => (
         <Link
           key={index}
-          href={href}
-          className={`group flex gap-1 p-2 rounded-md cursor-pointer hover:bg-gray-100`}
+          href={`${searchParams ? `${href}?${searchParams}` : href}`}
+          className={clsx(
+            `group flex gap-1 p-2 rounded-md cursor-pointer hover:bg-gray-100`,
+            {
+              "bg-gray-100": pathname == href,
+            }
+          )}
         >
           <Icon
             className={`size-5 group-hover:font-bold group-hover:text-black`}
           />
           <p
-            className={clsx(`select-none text-sm group-hover:font-bold group-hover:text-black`,
-            {
-              "md:hidden": isOpen,
-            })}
+            className={clsx(
+              `select-none text-sm group-hover:font-bold group-hover:text-black`,
+              {
+                "md:hidden": isOpen,
+              }
+            )}
           >
             {name}
           </p>

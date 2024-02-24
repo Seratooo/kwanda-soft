@@ -32,19 +32,19 @@ export default function Page({
           <PatientsTable />
         </div>
 
-        <div className="w-full md:w-72 h-screen space-y-6">
+        <div className="w-full md:w-72 h-screen space-y-5">
           <div className="border rounded-md">
             <Suspense fallback={<CardsUserSkeleton />}>
               <CardsUser />
             </Suspense>
           </div>
 
-          <div className="flex flex-col border rounded-md p-2 md:p-4">
+          <div className="flex flex-col border mb-5 rounded-md p-2 md:p-4">
             <div>
               <p className="text-sm font-bold">Estatísticas</p>
-              <p className="text-gray-400 text-xs">De 1 à 15 Junho, 2023</p>
+              <p className="text-gray-400 text-xs">De 1 a 15 Junho, 2023</p>
             </div>
-            <div className="h-44">
+            <div className="h-48">
               <PieChartElement />
             </div>
           </div>
