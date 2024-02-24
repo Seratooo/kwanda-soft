@@ -35,7 +35,6 @@ const linkUsers = [
 ];
 
 export function NavLinkBoard({ isOpen }: { isOpen: string | null }) {
-  console.log(isOpen);
   return (
     <>
       <Link
@@ -78,7 +77,6 @@ export function NavLinkBoard({ isOpen }: { isOpen: string | null }) {
 }
 
 export function NavLinkUsers({ isOpen }: { isOpen: string | null }) {
-  console.log(isOpen);
   return (
     <>
       {linkUsers.map(({ href, name, Icon }, index) => (
