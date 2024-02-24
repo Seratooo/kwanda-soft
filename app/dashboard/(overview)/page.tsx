@@ -1,17 +1,21 @@
 import { Presentation, Plus } from "lucide-react";
-import StackedBarChart from "../ui/dashboard/stackedBarChart";
-import PieChartElement from "../ui/dashboard/pieChart";
-import PatientsTable from "../ui/patients/table";
-import { CardsBoard, CardsUser } from "../ui/dashboard/cards";
+import StackedBarChart from "../../ui/dashboard/stackedBarChart";
+import PieChartElement from "../../ui/dashboard/pieChart";
+import PatientsTable from "../../ui/patients/table";
+import { CardsBoard, CardsUser } from "../../ui/dashboard/cards";
 import { Suspense } from "react";
-import TopBar from "../ui/topBar";
+import TopBar from "../../ui/topBar";
 import {
   CardsBoardSkeleton,
   CardsUserSkeleton,
   StackedBarChartSkeleton,
-} from "../ui/skeletons";
+} from "../../ui/skeletons";
 
-export default function Page() {
+export default function Page({
+  searchParams,
+}: {
+  searchParams: { [key: string]: string | string[] | undefined };
+}) {
   return (
     <main className="w-full h-screen p-2 md:p-4 space-y-3">
       <TopBar />
@@ -23,7 +27,7 @@ export default function Page() {
             </Suspense>
           </div>
           <div className="h-60 md:h-80 w-full">
-              <StackedBarChart />
+            <StackedBarChart />
           </div>
           <PatientsTable />
         </div>

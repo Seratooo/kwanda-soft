@@ -50,12 +50,13 @@ export async function CardsBoard() {
   const data = await getData();
   return (
     <>
-      {data.map((element) => (
+      {data.map((element, index) => (
         <CardBoard
           title={element.title}
           value={element.value}
           variation={element.variation}
           cardColor={element.cardColor}
+          key={index}
         />
       ))}
     </>
@@ -136,12 +137,13 @@ export async function CardsUser() {
           <option value="A">Anualmente</option>
         </select>
       </div>
-      {users.map((user) => (
+      {users.map((user, index) => (
         <CardUser
           avatarFallback={user.avatarFallback}
           name={user.name}
           description={user.description}
           linkAvatarImage={user.linkAvatarImage}
+          key={index}
         />
       ))}
     </>

@@ -29,3 +29,10 @@ export type cardUserProps = {
   name: string;
   description: string;
 }
+
+export type handleToggleParamsProps = {
+  newParams: string | null;
+  params: string;
+  pathname: string;
+  paramName: string;
+}
