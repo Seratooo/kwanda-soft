@@ -31,9 +31,9 @@ export default function SideNav() {
   return (
     <div
       className={clsx(
-        `overflow-hidden md:w-64 md:h-screen w-[100%] z-10 bg-white fixed md:static px-3 py-3 border-b md:border-x md:border-b-0 h-full duration-300`,
+        `overflow-hidden md:w-64 md:h-screen w-[100%] z-10 bg-white top-0 fixed md:static px-3 py-3 border-b md:border-x md:border-b-0 h-full duration-300`,
         {
-          "h-[48px] md:w-[64px]": menu,
+          "!h-[48px] md:w-[64px]": menu,
         }
       )}
     >
