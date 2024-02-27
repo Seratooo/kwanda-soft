@@ -155,7 +155,7 @@ export function ColumnCards() {
   return (
     <>
       {columnsAndCards.map(({ titleColumn, cards }, index) => (
-        <div className="bg-gray-100 h-auto w-72 rounded-sm p-3 space-y-2">
+        <div key={index} className="bg-gray-100 h-auto w-72 rounded-sm p-3 space-y-2">
           <Column title={titleColumn} nCards={cards.length}>
             {cards.map((card, index) => (
               <Card
@@ -165,6 +165,7 @@ export function ColumnCards() {
                 description={card.description}
                 hours={card.hours}
                 cardColor={card.cardColor}
+                key={index}
               />
             ))}
             <button className="flex items-center justify-center gap-2 p-2 bg-teal-100 w-full rounded-sm shadow-sm">
