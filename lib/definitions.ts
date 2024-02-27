@@ -30,6 +30,21 @@ export type cardUserProps = {
   description: string;
 }
 
+export type cardOfBoardProps = {
+  linkAvatarImage: string;
+  avatarFallback: string;
+  name: string;
+  description: string;
+  hours: string;
+  cardColor: string;
+}
+
+export type avatarProps = {
+  linkAvatarImage: string;
+  avatarFallback: string;
+  name: string;
+}
+
 export type handleToggleParamsProps = {
   newParams: string | null;
   params: string;
