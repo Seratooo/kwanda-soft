@@ -13,7 +13,7 @@ export default function Page() {
         <Filter />
         <ActionsElements />
       </div>
-      <div className="grid grid-cols-[repeat(5,minmax(300px,_1fr))] overflow-scroll w-full pb-5">
+      <div className="grid grid-cols-[repeat(5,minmax(300px,_1fr))] overflow-scroll w-full pb-5 h-[80vh]">
         <ColumnCards />
       </div>
     </main>
