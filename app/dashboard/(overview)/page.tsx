@@ -18,7 +18,7 @@ export default function Page({
 }) {
   return (
     <main className="w-full h-screen p-2 md:p-4 space-y-3">
-      <TopBar />
+      <TopBar  title="Painel"/>
       <div className="flex gap-5 md:gap-6 flex-col md:flex-row md:justify-between">
         <div className="space-y-8 w-full">
           <div className="flex flex-col gap-2 md:flex-row md:justify-between lg:justify-center 2xl:justify-start">
