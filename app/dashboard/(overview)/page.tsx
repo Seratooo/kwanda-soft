@@ -1,4 +1,3 @@
-import { Presentation, Plus } from "lucide-react";
 import StackedBarChart from "../../ui/dashboard/stackedBarChart";
 import PieChartElement from "../../ui/dashboard/pieChart";
 import PatientsTable from "../../ui/patients/table";
@@ -8,7 +7,6 @@ import TopBar from "../../ui/topBar";
 import {
   CardsBoardSkeleton,
   CardsUserSkeleton,
-  StackedBarChartSkeleton,
 } from "../../ui/skeletons";
 
 export default function Page({
