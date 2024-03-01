@@ -1,8 +1,11 @@
 import ScheduleComponet from "@/app/ui/schedule/schedule";
 import { ScheduleCards } from "@/app/ui/schedule/schedule-card";
 import TopBar from "@/app/ui/topBar";
-import { UserAvatares } from "@/app/ui/users-avatares";
-import { Clock8, MapPin, MoreVertical } from "lucide-react";
+import { Suspense } from "react";
+import { MoreHorizontal } from "lucide-react";
+import { CardsPatientSkeleton } from "@/app/ui/skeletons";
+import { CardsPatients } from "@/app/ui/patients/card-patient";
+import CalendarComponent from "@/app/ui/calendar";
 
 export default function Page() {
   return (
@@ -13,7 +16,18 @@ export default function Page() {
           <ScheduleComponet />
           <ScheduleCards />
         </div>
-        <div className="w-96 bg-gray-100 rounded-md"></div>
+        <div className="w-96 rounded-md space-y-5">
+          <CalendarComponent />
+          <div>
+            <div className="flex justify-between items-center m-2">
+              <p className="text-sm font-bold">Novos pacientes</p>
+              <MoreHorizontal className="size-5" />
+            </div>
+            <Suspense fallback={<CardsPatientSkeleton />}>
+              <CardsPatients />
+            </Suspense>
+          </div>
+        </div>
       </div>
     </main>
   );

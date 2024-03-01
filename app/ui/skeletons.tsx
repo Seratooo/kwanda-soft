@@ -36,6 +36,19 @@ export function CardUserSkeleton() {
     </>
   );
 }
+export function CardPatientSkeleton() {
+  return (
+    <>
+      <div className="flex gap-4 items-center justify-center bg-gray-100 m-0 md:my-[1.21rem] md:mx-[1.16rem] p-2.5 rounded-md animate-pulse">
+        <div className="w-9 h-9 rounded-full bg-gray-300"></div>
+        <div>
+          <div className="w-[10rem] h-4 bg-gray-300 mb-1"></div>
+          <div className="w-[10rem] h-6 bg-gray-200"></div>
+        </div>
+      </div>
+    </>
+  );
+}
 export function CardsUserSkeleton() {
   return (
     <>
@@ -64,6 +77,18 @@ export function CardsUserSkeleton() {
       <CardUserSkeleton />
       <CardUserSkeleton />
       <CardUserSkeleton />
+    </>
+  );
+}
+
+export function CardsPatientSkeleton() {
+  return (
+    <>
+      <CardPatientSkeleton />
+      <CardPatientSkeleton />
+      <CardPatientSkeleton />
+      <CardPatientSkeleton />
+      <CardPatientSkeleton />
     </>
   );
 }

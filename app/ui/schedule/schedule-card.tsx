@@ -4,7 +4,7 @@ import { UserAvatares } from "../users-avatares";
 export function ScheduleCard({name}:{name: string}) {
   return (
     <div className="space-y-2">
-      <div className="flex justify-between bg-gray-100 p-5 rounded-md">
+      <div className="flex justify-between bg-gray-100 px-5 py-12 rounded-md">
         <div>
           <p className="text-xs text-back font-bold">{name}</p>
           <div className="flex gap-4 items-center">
