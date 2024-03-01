@@ -11,14 +11,14 @@ export default function Page() {
   return (
     <main className="w-full h-screen p-2 md:p-4 space-y-3">
       <TopBar title="Agendamento" />
-      <div className="flex h-screen gap-4">
+      <div className="flex h-screen gap-4 flex-col md:flex-row">
         <div className="w-full space-y-9">
           <ScheduleComponet />
           <ScheduleCards />
         </div>
-        <div className="w-96 rounded-md space-y-5">
+        <div className="w-full md:w-96 rounded-md space-y-5">
           <CalendarComponent />
-          <div>
+          <div className="-m-2">
             <div className="flex justify-between items-center m-2">
               <p className="text-sm font-bold">Novos pacientes</p>
               <MoreHorizontal className="size-5" />
