@@ -3,81 +3,87 @@ import Search from "@/app/ui/search";
 import { FormattedPacientsTable } from "@/lib/definitions";
 import clsx from "clsx";
 import { MoreVertical } from "lucide-react";
-
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const patients = [
   {
     id: "3958dc9e-712f-4377-85e9-fec4b6a6442a",
     name: "Delba de Oliveira",
     waitingTime: "10min",
-    status: "em risco",
+    status: "Recepção", //"em risco",
     priority: "emergência",
   },
   {
     id: "3958dc9e-742f-4377-85e9-fec4b6a6442a",
     name: "Lee Robinson",
     waitingTime: "13min",
-    status: "grave",
+    status: "Recepção",//"grave",
     priority: "muito-urgente",
   },
   {
     id: "3958dc9e-737f-4377-85e9-fec4b6a6442a",
     name: "Hector Simpson",
     waitingTime: "20min",
-    status: "em risco",
+    status: "Triagem",//"em risco",
     priority: "emergência",
   },
   {
     id: "50ca3e18-62cd-11ee-8c99-0242ac120002",
     name: "Steven Tey",
     waitingTime: "22min",
-    status: "moderado",
+    status: "Triagem",//"moderado",
     priority: "urgente",
   },
   {
     id: "3958dc9e-787f-4377-85e9-fec4b6a6442a",
     name: "Steph Dietz",
     waitingTime: "22min",
-    status: "estável",
+    status: "Triagem",//"estável",
     priority: "pouco-urgente",
   },
   {
     id: "76d65c26-f784-44a2-ac19-586678f7c2f2",
     name: "Michael Novotny",
     waitingTime: "25min",
-    status: "sem risco",
+    status: "Tratamento",//"sem risco",
     priority: "não-urgente",
   },
   {
-    id: 'd6e15727-9fe1-4961-8c5b-ea44a9bd81aa',
-    name: 'Evil Rabbit',
-    waitingTime: '27min',
-    status: 'sem risco',
-    priority: 'não-urgente'
+    id: "d6e15727-9fe1-4961-8c5b-ea44a9bd81aa",
+    name: "Evil Rabbit",
+    waitingTime: "27min",
+    status: "Tratamento",//"sem risco",
+    priority: "não-urgente",
   },
   {
-    id: '126eed9c-c90c-4ef6-a4a8-fcf7408d3c66',
-    name: 'Emil Kowalski',
-    waitingTime: '28min',
-    status: 'sem risco',
-    priority: 'não-urgente'
+    id: "126eed9c-c90c-4ef6-a4a8-fcf7408d3c66",
+    name: "Emil Kowalski",
+    waitingTime: "28min",
+    status: "Tratamento",//"sem risco",
+    priority: "não-urgente",
   },
   {
-    id: 'CC27C14A-0ACF-4F4A-A6C9-D45682C144B9',
-    name: 'Amy Burns',
-    waitingTime: '29min',
-    status: 'sem risco',
-    priority: 'não-urgente'
+    id: "CC27C14A-0ACF-4F4A-A6C9-D45682C144B9",
+    name: "Amy Burns",
+    waitingTime: "29min",
+    status: "Avaliação",//"sem risco",
+    priority: "não-urgente",
   },
   {
-    id: '13D07535-C59E-4157-A011-F8D2EF4E0CBB',
-    name: 'Balazs Orban',
-    waitingTime: '32min',
-    status: 'sem risco',
-    priority: 'não-urgente'
+    id: "13D07535-C59E-4157-A011-F8D2EF4E0CBB",
+    name: "Balazs Orban",
+    waitingTime: "32min",
+    status: "Avaliação",//"sem risco",
+    priority: "não-urgente",
   },
 ];
-
 
 export default function PatientsTable() {
   return (
@@ -164,7 +170,20 @@ export default function PatientsTable() {
                       scope="col"
                       className="px-0 py-3 font-bold text-gray-500"
                     >
-                      <MoreVertical />
+                      <DropdownMenu>
+                        <DropdownMenuTrigger asChild>
+                          <MoreVertical className="cursor-pointer" />
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent>
+                          <DropdownMenuLabel>Opções</DropdownMenuLabel>
+                          <DropdownMenuSeparator />
+                          <DropdownMenuItem>
+                            Ver todos os pacientes
+                          </DropdownMenuItem>
+                          <DropdownMenuItem>Exportar dados</DropdownMenuItem>
+                          <DropdownMenuItem>Gerar relatórios</DropdownMenuItem>
+                        </DropdownMenuContent>
+                      </DropdownMenu>
                     </th>
                   </tr>
                 </thead>
@@ -200,7 +219,17 @@ export default function PatientsTable() {
                         </span>
                       </td>
                       <td className="whitespace-nowrap bg-white py-4 text-sm">
-                        <MoreVertical />
+                        <DropdownMenu>
+                          <DropdownMenuTrigger>
+                            <MoreVertical className="cursor-pointer" />
+                          </DropdownMenuTrigger>
+                          <DropdownMenuContent>
+                            <DropdownMenuLabel>Opções</DropdownMenuLabel>
+                            <DropdownMenuSeparator />
+                            <DropdownMenuItem>Ver detalhes</DropdownMenuItem>
+                            <DropdownMenuItem>Ver histórico</DropdownMenuItem>
+                          </DropdownMenuContent>
+                        </DropdownMenu>
                       </td>
                     </tr>
                   ))}

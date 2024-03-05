@@ -1,6 +1,23 @@
 import { Clock8, MoreHorizontal, PlusCircle } from "lucide-react";
 import { AvatarComponent } from "../users-avatares";
 import { cardOfBoardProps } from "@/lib/definitions";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 function Column({
   children,
@@ -30,7 +47,7 @@ function Card({
   name,
   description,
   hours,
-  cardColor
+  cardColor,
 }: cardOfBoardProps) {
   return (
     <div>
@@ -45,7 +62,17 @@ function Card({
         <div className="space-y-1/5 w-full">
           <div className="flex justify-between w-full">
             <p className="text-sm font-medium">{name}</p>
-            <MoreHorizontal className="cursor-pointer" />
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <MoreHorizontal className="cursor-pointer" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                <DropdownMenuLabel>Opções</DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem>Ver detalhes</DropdownMenuItem>
+                <DropdownMenuItem>Ver histórico</DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
           <p className="text-xs text-gray-500">{description}</p>
           <div className="flex gap-1 items-center mt-3">
@@ -70,7 +97,7 @@ export function ColumnCards() {
           name: "Abubacar Correia",
           description: "Aliquip ea aliquip nostrud",
           hours: "2h ago",
-          cardColor: 'bg-red-500/50'
+          cardColor: "bg-red-500/50",
         },
         {
           linkAvatarImage: "https://github.com/seratooo.png",
@@ -78,7 +105,7 @@ export function ColumnCards() {
           name: "Abubacar Correia",
           description: "Aliquip ea aliquip nostrud",
           hours: "2h ago",
-          cardColor: 'bg-red-500/50'
+          cardColor: "bg-red-500/50",
         },
         {
           linkAvatarImage: "https://github.com/seratooo.png",
@@ -86,7 +113,7 @@ export function ColumnCards() {
           name: "Abubacar Correia",
           description: "Aliquip ea aliquip nostrud",
           hours: "2h ago",
-          cardColor: 'bg-orange-500/50'
+          cardColor: "bg-orange-500/50",
         },
       ],
     },
@@ -99,7 +126,7 @@ export function ColumnCards() {
           name: "Abubacar Correia",
           description: "Aliquip ea aliquip nostrud",
           hours: "2h ago",
-          cardColor: 'bg-orange-500/50'
+          cardColor: "bg-orange-500/50",
         },
         {
           linkAvatarImage: "https://github.com/seratooo.png",
@@ -107,7 +134,7 @@ export function ColumnCards() {
           name: "Abubacar Correia",
           description: "Aliquip ea aliquip nostrud",
           hours: "2h ago",
-          cardColor: 'bg-blue-500/50'
+          cardColor: "bg-blue-500/50",
         },
       ],
     },
@@ -120,7 +147,7 @@ export function ColumnCards() {
           name: "Abubacar Correia",
           description: "Aliquip ea aliquip nostrud",
           hours: "2h ago",
-          cardColor: 'bg-blue-500/50'
+          cardColor: "bg-blue-500/50",
         },
       ],
     },
@@ -133,7 +160,7 @@ export function ColumnCards() {
           name: "Abubacar Correia",
           description: "Aliquip ea aliquip nostrud",
           hours: "2h ago",
-          cardColor: 'bg-blue-500/50'
+          cardColor: "bg-blue-500/50",
         },
       ],
     },
@@ -146,7 +173,7 @@ export function ColumnCards() {
           name: "Abubacar Correia",
           description: "Aliquip ea aliquip nostrud",
           hours: "2h ago",
-          cardColor: 'bg-blue-500/50'
+          cardColor: "bg-blue-500/50",
         },
       ],
     },
@@ -155,23 +182,102 @@ export function ColumnCards() {
   return (
     <>
       {columnsAndCards.map(({ titleColumn, cards }, index) => (
-        <div key={index} className="bg-gray-100 h-auto w-72 rounded-sm p-3 space-y-2">
+        <div
+          key={index}
+          className="bg-gray-100 h-auto w-72 rounded-sm p-3 space-y-2"
+        >
           <Column title={titleColumn} nCards={cards.length}>
             {cards.map((card, index) => (
-              <Card
-                linkAvatarImage={card.linkAvatarImage}
-                avatarFallback={card.avatarFallback}
-                name={card.name}
-                description={card.description}
-                hours={card.hours}
-                cardColor={card.cardColor}
-                key={index}
-              />
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Card
+                    linkAvatarImage={card.linkAvatarImage}
+                    avatarFallback={card.avatarFallback}
+                    name={card.name}
+                    description={card.description}
+                    hours={card.hours}
+                    cardColor={card.cardColor}
+                    key={index}
+                  />
+                </DialogTrigger>
+                <DialogContent className="sm:max-w-[425px]">
+                  <DialogHeader>
+                    <DialogTitle>Edit profile</DialogTitle>
+                    <DialogDescription>
+                      Make changes to your profile here. Click save when you're
+                      done.
+                    </DialogDescription>
+                  </DialogHeader>
+                  <div className="grid gap-4 py-4">
+                    <div className="grid grid-cols-4 items-center gap-4">
+                      <label htmlFor="name" className="text-right">
+                        Name
+                      </label>
+                      <input
+                        id="name"
+                        value="Pedro Duarte"
+                        className="col-span-3"
+                      />
+                    </div>
+                    <div className="grid grid-cols-4 items-center gap-4">
+                      <label htmlFor="username" className="text-right">
+                        Username
+                      </label>
+                      <input
+                        id="username"
+                        value="@peduarte"
+                        className="col-span-3"
+                      />
+                    </div>
+                  </div>
+                  <DialogFooter>
+                    <button type="submit">Save changes</button>
+                  </DialogFooter>
+                </DialogContent>
+              </Dialog>
             ))}
-            <button className="flex items-center justify-center gap-2 p-2 bg-teal-100 w-full rounded-sm shadow-sm">
-              <PlusCircle className="size-4 text-teal-900" />
-              <p className="text-xs text-teal-900">Adicionar paciente</p>
-            </button>
+            <Dialog>
+              <DialogTrigger asChild>
+                <button className="flex items-center justify-center gap-2 p-2 bg-teal-100 w-full rounded-sm shadow-sm">
+                  <PlusCircle className="size-4 text-teal-900" />
+                  <p className="text-xs text-teal-900">Adicionar paciente</p>
+                </button>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-[425px]">
+                <DialogHeader>
+                  <DialogTitle>Edit profile</DialogTitle>
+                  <DialogDescription>
+                    Make changes to your profile here. Click save when you're
+                    done.
+                  </DialogDescription>
+                </DialogHeader>
+                <div className="grid gap-4 py-4">
+                  <div className="grid grid-cols-4 items-center gap-4">
+                    <label htmlFor="name" className="text-right">
+                      Name
+                    </label>
+                    <input
+                      id="name"
+                      value="Pedro Duarte"
+                      className="col-span-3"
+                    />
+                  </div>
+                  <div className="grid grid-cols-4 items-center gap-4">
+                    <label htmlFor="username" className="text-right">
+                      Username
+                    </label>
+                    <input
+                      id="username"
+                      value="@peduarte"
+                      className="col-span-3"
+                    />
+                  </div>
+                </div>
+                <DialogFooter>
+                  <button type="submit">Save changes</button>
+                </DialogFooter>
+              </DialogContent>
+            </Dialog>
           </Column>
         </div>
       ))}
