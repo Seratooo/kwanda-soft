@@ -20,19 +20,19 @@ import { usePathname, useSearchParams } from "next/navigation";
 const linkBoard = [
   { name: "Quadro", href: "/dashboard/board", Icon: Presentation },
   { name: "Agendamentos", href: "/dashboard/schedule", Icon: CalendarClock },
-  { name: "Pacientes", href: "/#", Icon: UserRoundSearch },
-  { name: "Funcionários", href: "/#", Icon: UserRoundCheck },
-  { name: "Análise de dados", href: "/#", Icon: BarChartBig },
-  { name: "Mensagens", href: "/#", Icon: MessageSquareText },
-  { name: "Atividades", href: "/#", Icon: MenuSquare },
+  { name: "Pacientes", href: "/dashboard/patients", Icon: UserRoundSearch },
+  { name: "Funcionários", href: "/dashboard/employees", Icon: UserRoundCheck },
+ // { name: "Análise de dados", href: "/#", Icon: BarChartBig },
+ //  { name: "Mensagens", href: "/#", Icon: MessageSquareText },
+ // { name: "Atividades", href: "/#", Icon: MenuSquare },
 ];
 
 const linkUsers = [
-  { name: "Recepção", href: "/#", Icon: ConciergeBell },
-  { name: "Triagem", href: "/#", Icon: ScanText },
-  { name: "Tratamento", href: "/#", Icon: ActivitySquare },
-  { name: "Avaliação", href: "/#", Icon: ShieldCheck },
-  { name: "Geral", href: "/#", Icon: UserRoundPlus },
+  { name: "Recepção", href: "/dashboard/reception", Icon: ConciergeBell },
+  { name: "Triagem", href: "/dashboard/triage", Icon: ScanText },
+  { name: "Tratamento", href: "/dashboard/treatment", Icon: ActivitySquare },
+  { name: "Avaliação", href: "/dashboard/evaluation", Icon: ShieldCheck },
+ // { name: "Geral", href: "/#", Icon: UserRoundPlus },
 ];
 
 export function NavLinkBoard({ isOpen }: { isOpen: string | null }) {
